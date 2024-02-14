@@ -21,28 +21,43 @@ export class AppComponent {
 
   constructor(private formBuilder: FormBuilder){
     this.forms = this.formBuilder.group({
-      id: ['0'],
+      id: [''],
       name: [''],
       email: [''],
       phone: [''],
       website: [''],
     });
+    
     this.getUserData();
 
   }
   
   createNewUser(){
     const formData = this.forms.value;
-    this.service.craeteUser(formData).subscribe((result: any) => {
-      console.log(result);
-      
-    });
+    
+    this.service.createUser(formData).subscribe((res: any) =>{
+    console.log(res);
+    console.log(formData);
+    
+    })
+
+    
+
+    // const formData = this.forms.value;
+    // this.service.createUser(formData).subscribe((res: any) => {
+    // // this.getUserList = result;
+    // this.getUserData();
     // console.log(this.forms.value);
+    // console.log(res);
+    // })
   }
+
 
   getUserData(){
     this.service.getUser().subscribe((result: any) => {
       this.getUserList = result;
     });
   }
+
+
 }

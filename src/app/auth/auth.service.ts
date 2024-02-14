@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,15 @@ export class AuthService {
 
   constructor() { }
 
-  craeteUser(formData: any){
-    return this.http.post('https://jsonplaceholder.typicode.com/users', formData)
+  createUser(formData: any) {
+    return this.http.post('assets/API.json', formData)
   }
 
-  getUser(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+  // getUser(){
+  //   return this.http.get('https://jsonplaceholder.typicode.com/users')
+  // }
+  getUser() {
+    return this.http.get('assets/API.json');
   }
 
 }
