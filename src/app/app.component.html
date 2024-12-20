@@ -1,5 +1,9 @@
 <h1 class="heading">API Call</h1>
 <form [formGroup]="forms" (ngSubmit)="createNewUser()">
+    <div>
+        <label for="exampleFormControlInput1" class="form-label">ID </label>
+        <input type="text" formControlName="id" placeholder="Enter id">
+    </div>
   <div>
       <label for="exampleFormControlInput1" class="form-label">Name </label>
       <input type="text" formControlName="name" placeholder="Enter your name">
@@ -24,7 +28,9 @@
 <table class="table table-responsive">
   <thead>
       <tr>
+
           <th>s.no</th>
+          <th>id</th>
           <th>name</th>
           <th>email</th>
           <th>phone</th>
